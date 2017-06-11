@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GameMode1Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -16,7 +16,7 @@
     <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#goToResult" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Label text="{Short instruction}" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="20.0" />

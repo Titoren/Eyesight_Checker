@@ -11,4 +11,9 @@ public class HomePageController {
     void goToUserInfoStage() {
         Main.getMainController().switchToStage(Main.getMainController().getUserInfoStage());
     }
+
+    @FXML
+    void goToChooseModeStage() {
+        Main.getMainController().switchToStage(Main.getMainController().getChooseModeStage());
+    }
 }

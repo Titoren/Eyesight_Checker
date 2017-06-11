@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="293.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChooseModeController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -16,7 +16,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Mode 3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button mnemonicParsing="false" onAction="#goToGameMode1" text="Mode 1" GridPane.halignment="CENTER">
          <padding>
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </padding>
@@ -26,7 +26,7 @@
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </padding>
       </Button>
-      <Button mnemonicParsing="false" text="Mode 1" GridPane.halignment="CENTER">
+      <Button mnemonicParsing="false" text="Mode 3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <padding>
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </padding>
