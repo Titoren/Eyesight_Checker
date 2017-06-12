@@ -79,6 +79,9 @@ public class MainController {
 //        registrationStage.setScene(new Scene(registrationParent));
 //        registrationStage.setTitle("SmartFridge Control Panel");
 
+        //set text to label
+
+
 
 
         homePageParent = FXMLLoader.load(getClass().getResource("/view/homePage.fxml"));

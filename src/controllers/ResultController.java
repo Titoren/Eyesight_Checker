@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 /**
  * Created by richard on 02.06.17.
  */
+
 public class ResultController {
 
     @FXML
