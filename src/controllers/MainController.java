@@ -82,8 +82,6 @@ public class MainController {
         //set text to label
 
 
-
-
         homePageParent = FXMLLoader.load(getClass().getResource("/view/homePage.fxml"));
         primaryStage.setTitle("Eyesight checker");
         primaryStage.setScene(new Scene(homePageParent));
