@@ -6,14 +6,8 @@ import controllers.MainController;
 
 public class Main extends Application {
 
-//    @Override
-//    public void start(Stage primaryStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
-//        primaryStage.setTitle("Eyesight Checker");
-//        primaryStage.setScene(new Scene(root));
-//        primaryStage.show();
-//    }
     private static MainController mainController;
+    private static User currentUser = new User(); // TODO: 13.06.17 redo
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,5 +20,13 @@ public class Main extends Application {
 
     public static MainController getMainController() {
         return mainController;
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(User currentUser) {
+        Main.currentUser = currentUser;
     }
 }

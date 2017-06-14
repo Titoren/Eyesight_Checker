@@ -1,5 +1,6 @@
 package controllers;
 
+import eyesightChecker.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,29 +10,28 @@ public class MainController {
 
     private Stage currentStage;
 
-
     private Stage homePageStage;
     private Parent homePageParent;
 
-    private Stage userInfoStage;
+    private Stage userInfoStage = new Stage();
     private Parent userInfoParent;
 
-    private Stage instructionStage;
+    private Stage instructionStage = new Stage();
     private Parent instructionParent;
 
-    private Stage testStage;
+    private Stage testStage = new Stage();
     private Parent testParent;
 
-    private Stage chooseModeStage;
+    private Stage chooseModeStage = new Stage();
     private Parent chooseModeParent;
 
-    private Stage gameMode1Stage;
+    private Stage gameMode1Stage = new Stage();
     private Parent gameMode1Parent;
 
-    private Stage resultStage;
+    private Stage resultStage = new Stage();
     private Parent resultParent;
 
-    private Stage reportStage;
+    private Stage reportStage = new Stage();
     private Parent reportParent;
 
 //    private Stage ...Stage;
@@ -39,48 +39,24 @@ public class MainController {
 
     public MainController(Stage primaryStage) throws Exception {
 
-        userInfoParent = FXMLLoader.load((getClass().getResource("/view/userInfo.fxml")));
-        userInfoStage = new Stage();
-        userInfoStage.setScene(new Scene(userInfoParent));
-        userInfoStage.setTitle("User Info");
+//        initInfoStage();
 
-        instructionParent = FXMLLoader.load((getClass().getResource("/view/instruction.fxml")));
-        instructionStage = new Stage();
-        instructionStage.setScene(new Scene(instructionParent));
-        instructionStage.setTitle("Instruction");
+        initStage("User Info", "/view/userInfo.fxml", userInfoParent, userInfoStage);
 
-        testParent = FXMLLoader.load((getClass().getResource("/view/test.fxml")));
-        testStage = new Stage();
-        testStage.setScene(new Scene(testParent));
-        testStage.setTitle("Test");
+        initStage("Report", "/view/report.fxml", reportParent, reportStage);
 
-        chooseModeParent = FXMLLoader.load((getClass().getResource("/view/chooseMode.fxml")));
-        chooseModeStage = new Stage();
-        chooseModeStage.setScene(new Scene(chooseModeParent));
-        chooseModeStage.setTitle("Choose mode");
+        initStage("Result", "/view/result.fxml", resultParent, resultStage);
 
-        gameMode1Parent = FXMLLoader.load((getClass().getResource("/view/gameMode1.fxml")));
-        gameMode1Stage = new Stage();
-        gameMode1Stage.setScene(new Scene(gameMode1Parent));
-        gameMode1Stage.setTitle("Game mode 1");
 
-        resultParent = FXMLLoader.load((getClass().getResource("/view/result.fxml")));
-        resultStage = new Stage();
-        resultStage.setScene(new Scene(resultParent));
-        resultStage.setTitle("Result");
+        initInstructionStage();
 
-        reportParent = FXMLLoader.load((getClass().getResource("/view/report.fxml")));
-        reportStage = new Stage();
-        reportStage.setScene(new Scene(reportParent));
-        reportStage.setTitle("Report");
+        initChooseModeStage();
 
-//        registrationParent = FXMLLoader.load((getClass().getResource("/view/register.fxml")));
-//        registrationStage = new Stage();
-//        registrationStage.setScene(new Scene(registrationParent));
-//        registrationStage.setTitle("SmartFridge Control Panel");
+        initGameMode1();
 
-        //set text to label
+        initResultStage();
 
+        initReportStage();
 
         homePageParent = FXMLLoader.load(getClass().getResource("/view/homePage.fxml"));
         primaryStage.setTitle("Eyesight checker");
@@ -90,17 +66,74 @@ public class MainController {
         primaryStage.show();
     }
 
+//    public void initReportStage() throws java.io.IOException {
+//        reportParent = FXMLLoader.load((getClass().getResource("/view/report.fxml")));
+//        reportStage = new Stage();
+//        reportStage.setScene(new Scene(reportParent));
+//        reportStage.setTitle("Report");
+//    }
+
+    public void initResultStage() throws java.io.IOException {
+        resultParent = FXMLLoader.load((getClass().getResource("/view/result.fxml")));
+        resultStage = new Stage();
+        resultStage.setScene(new Scene(resultParent));
+        resultStage.setTitle("Result");
+    }
+
+    public void initGameMode1() throws java.io.IOException {
+        gameMode1Parent = FXMLLoader.load((getClass().getResource("/view/gameMode1.fxml")));
+        gameMode1Stage = new Stage();
+        gameMode1Stage.setScene(new Scene(gameMode1Parent));
+        gameMode1Stage.setTitle("Game mode 1");
+    }
+
+    public void initChooseModeStage() throws java.io.IOException {
+        chooseModeParent = FXMLLoader.load((getClass().getResource("/view/chooseMode.fxml")));
+        chooseModeStage = new Stage();
+        chooseModeStage.setScene(new Scene(chooseModeParent));
+        chooseModeStage.setTitle("Choose mode");
+    }
+
+    public void initInstructionStage() throws java.io.IOException {
+        instructionParent = FXMLLoader.load((getClass().getResource("/view/instruction.fxml")));
+        instructionStage = new Stage();
+        instructionStage.setScene(new Scene(instructionParent));
+        instructionStage.setTitle("Instruction");
+    }
+
+    public void initTestStage() throws java.io.IOException {
+        FXMLLoader testStageLoader = new FXMLLoader(getClass().getResource("/view/test.fxml"));
+        testParent = testStageLoader.load();
+        TestController testController = testStageLoader.getController();
+        testController.getPositionLabel().setText(Main.getCurrentUser().getName());
+        testStage = new Stage();
+        testStage.setScene(new Scene(testParent));
+        testStage.setTitle("Test");
+    }
+
+
+    // TODO: 14.06.17 Optimize methods
+    public void initStage(String title, String path, Parent parent, Stage stage) throws java.io.IOException {
+        FXMLLoader stageLoader = new FXMLLoader(getClass().getResource(path));
+        parent = stageLoader.load();
+
+        stage.setScene(new Scene(parent));
+        stage.setTitle(title);
+    }
+
+    public void initInfoStage() throws java.io.IOException {
+        userInfoParent = FXMLLoader.load((getClass().getResource("/view/userInfo.fxml")));
+        userInfoStage = new Stage();
+        userInfoStage.setScene(new Scene(userInfoParent));
+        userInfoStage.setTitle("User Info");
+    }
+
     public void switchToStage(Stage newStage) {
         currentStage.hide();
         currentStage = newStage;
         currentStage.show();
     }
 
-//    public void switchToPrimaryStage(Stage primaryStage) {
-//        currentStage.hide();
-//        currentStage = primaryStage;
-//        currentStage.show();
-//    }
 
     public Stage getHomePageStage() {
         return homePageStage;
@@ -137,6 +170,7 @@ public class MainController {
     public Parent getInstructionParent() {
         return instructionParent;
     }
+
     public void setInstructionParent(Parent instructionParent) {
         this.instructionParent = instructionParent;
     }
@@ -228,4 +262,5 @@ public class MainController {
     public void setReportParent(Parent reportParent) {
         this.reportParent = reportParent;
     }
+
 }

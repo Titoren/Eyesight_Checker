@@ -39,7 +39,7 @@
       <Label fx:id="positionLabel" text="Write letter from N row and M column" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <ImageView fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../img/test.png" />
+            <Image url="@../img/test1.png" />
          </image>
       </ImageView>
    </children>

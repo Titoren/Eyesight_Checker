@@ -16,9 +16,19 @@ public class TestController {
     }
 
     @FXML
-    private Label positionLabel ;
+    private Label positionLabel;
 
-    public void setText(String text) {
-        positionLabel.setText(text);
+    @FXML
+    public void setText() {
+        positionLabel.setText("text");
+    }
+
+//    @FXML
+//    public void initialize() {
+//        positionLabel.setText(Main.getCurrentUser().getName());
+//    }
+
+    public Label getPositionLabel() {
+        return positionLabel;
     }
 }
