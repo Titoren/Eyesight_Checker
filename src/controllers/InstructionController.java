@@ -11,11 +11,11 @@ import java.io.IOException;
 public class InstructionController {
     @FXML
     void goToTest() {
-        try {
-            Main.getMainController().initTestStage(); // TODO: 13.06.17 Question to Valentine
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Main.getMainController().initReportStage();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         Main.getMainController().switchToStage(Main.getMainController().getTestStage());
     }
 }

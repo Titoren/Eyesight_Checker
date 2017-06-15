@@ -28,6 +28,8 @@ public class UserInfoController {
             Main.getCurrentUser().setName(tfName.getText());
             Main.getCurrentUser().setSurname(tfSurname.getText());
             Main.getCurrentUser().setAge(Integer.parseInt(tfAge.getText()));
+            Main.getCurrentUser().setAnswerCount(0);
+            Main.getCurrentUser().setRightAnswerCount(0);
 
             Main.getMainController().switchToStage(Main.getMainController().getInstructionStage());
         } catch (Exception e){
@@ -36,11 +38,7 @@ public class UserInfoController {
             alert.setHeaderText(null);
             alert.setContentText("Please, write correct information!");
             alert.showAndWait();
-
-
         }
-        //re
-
 
         // TODO: 13.06.17 redo
 

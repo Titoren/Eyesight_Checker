@@ -8,6 +8,9 @@ public class User {
     private String surname;
     private int age;
 
+    private int answerCount;
+    private int rightAnswerCount;
+
     public User(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
@@ -39,5 +42,21 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getAnswerCount() {
+        return answerCount;
+    }
+
+    public void setAnswerCount(int answerCount) {
+        this.answerCount = answerCount;
+    }
+
+    public int getRightAnswerCount() {
+        return rightAnswerCount;
+    }
+
+    public void setRightAnswerCount(int rightAnswerCount) {
+        this.rightAnswerCount = rightAnswerCount;
     }
 }
