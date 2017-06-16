@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Created by richard on 31.05.17.
@@ -24,7 +25,9 @@ public class TestController {
             "нкибмшыб"
     };
 
-    // TODO: 02.06.17  Replace this method
+    private int vPosition = 0;
+    private int hPosition = new Random().nextInt(2);
+
     @FXML
     void goToReportStage() {
         try {
@@ -34,6 +37,8 @@ public class TestController {
         }
 
         Main.getMainController().switchToStage(Main.getMainController().getReportStage());
+
+        tfCompare.setText("");
     }
 
     @FXML
@@ -57,7 +62,7 @@ public class TestController {
 
     @FXML
     public void checkLetter() {
-        boolean answer = letters[0].substring(0,1).equalsIgnoreCase(getTfCompare().getText());
+        boolean answer = letters[hPosition].substring(vPosition, 1).equalsIgnoreCase(getTfCompare().getText());
         lblDebug.setText("" + answer);
 
         Main.getCurrentUser().setAnswerCount(Main.getCurrentUser().getAnswerCount() + 1);
@@ -74,5 +79,21 @@ public class TestController {
 
     public TextField getTfCompare() {
         return tfCompare;
+    }
+
+    public int getvPosition() {
+        return vPosition;
+    }
+
+    public void setvPosition(int vPosition) {
+        this.vPosition = vPosition;
+    }
+
+    public int gethPosition() {
+        return hPosition;
+    }
+
+    public void sethPosition(int hPosition) {
+        this.hPosition = hPosition;
     }
 }

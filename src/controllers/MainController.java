@@ -34,9 +34,6 @@ public class MainController {
     private Stage reportStage = new Stage();
     private Parent reportParent;
 
-//    private Stage ...Stage;
-//    private Parent ...Parent;
-
     public MainController(Stage primaryStage) throws Exception {
 
 //        initStage("User Info", "/view/userInfo.fxml", userInfoParent, userInfoStage);
@@ -73,9 +70,12 @@ public class MainController {
         reportParent = reportStageLoader.load();
 
         ReportController reportController = reportStageLoader.getController();
-        reportController.getLblReportText().setText(Main.getCurrentUser().getName() + "\n" +
-                Main.getCurrentUser().getName() + "\n" + Main.getCurrentUser().getAge() + "\n" +
-                Main.getCurrentUser().getRightAnswerCount() + "/" +
+        reportController.getLblReportText().setText("Name: " + Main.getCurrentUser().getName() + "\n" +
+                "Surname: " + Main.getCurrentUser().getSurname() + "\n" +
+                "Age: " + Main.getCurrentUser().getAge() + "\n" +
+                "\n--------------------------------------------------------------------------------" +
+                "\n\n\t\t\t\t     " +
+                "Result: " + Main.getCurrentUser().getRightAnswerCount() + "/" +
                 Main.getCurrentUser().getAnswerCount()
         );
 
@@ -116,8 +116,11 @@ public class MainController {
     public void initTestStage() throws java.io.IOException {
         FXMLLoader testStageLoader = new FXMLLoader(getClass().getResource("/view/test.fxml"));
         testParent = testStageLoader.load();
+
         TestController testController = testStageLoader.getController();
-        //testController.getPositionLabel().setText(Main.getCurrentUser().getName());
+        testController.getPositionLabel().setText("Write letter from " + testController.getvPosition() +
+                " row and " + testController.gethPosition() + " column");
+
         testStage = new Stage();
         testStage.setScene(new Scene(testParent));
         testStage.setTitle("Test");
