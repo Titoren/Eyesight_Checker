@@ -37,8 +37,6 @@ public class TestController {
         }
 
         Main.getMainController().switchToStage(Main.getMainController().getReportStage());
-
-        tfCompare.setText("");
     }
 
     @FXML
@@ -51,22 +49,28 @@ public class TestController {
     private Label lblDebug;
 
 //    @FXML
-//    public void setText() {
-//        positionLabel.setText("text");
-//    }
-
-//    @FXML
 //    public void initialize() {
 //        positionLabel.setText(Main.getCurrentUser().getName());
 //    }
 
     @FXML
     public void checkLetter() {
-        boolean answer = letters[hPosition].substring(vPosition, 1).equalsIgnoreCase(getTfCompare().getText());
+        boolean answer = letters[vPosition].substring(hPosition, hPosition + 1).equalsIgnoreCase(getTfCompare().getText());
         lblDebug.setText("" + answer);
 
         Main.getCurrentUser().setAnswerCount(Main.getCurrentUser().getAnswerCount() + 1);
         Main.getCurrentUser().setRightAnswerCount(Main.getCurrentUser().getRightAnswerCount() + (answer ? 1 : 0));
+
+        // TODO: 16.06.17 Check how it works
+        if(Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1 &&
+                ((Main.getCurrentUser().getRightAnswerCount() - 2 ) % 3 == 0))
+            vPosition++;
+
+        hPosition = new Random().nextInt(letters[vPosition].length()); //update coordinates for next letter
+        positionLabel.setText("Write letter from " + (vPosition + 1) +
+                " row and " + (hPosition + 1) + " column ");
+
+        tfCompare.setText("");
     }
 
     public Label getPositionLabel() {
@@ -81,19 +85,19 @@ public class TestController {
         return tfCompare;
     }
 
-    public int getvPosition() {
+    public int getVPosition() {
         return vPosition;
     }
 
-    public void setvPosition(int vPosition) {
+    public void setVPosition(int vPosition) {
         this.vPosition = vPosition;
     }
 
-    public int gethPosition() {
+    public int getHPosition() {
         return hPosition;
     }
 
-    public void sethPosition(int hPosition) {
+    public void setHPosition(int hPosition) {
         this.hPosition = hPosition;
     }
 }

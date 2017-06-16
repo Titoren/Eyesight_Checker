@@ -118,8 +118,8 @@ public class MainController {
         testParent = testStageLoader.load();
 
         TestController testController = testStageLoader.getController();
-        testController.getPositionLabel().setText("Write letter from " + testController.getvPosition() +
-                " row and " + testController.gethPosition() + " column");
+        testController.getPositionLabel().setText("Write letter from " + (testController.getVPosition() + 1) +
+                " row and " + (testController.getHPosition() + 1) + " column");
 
         testStage = new Stage();
         testStage.setScene(new Scene(testParent));

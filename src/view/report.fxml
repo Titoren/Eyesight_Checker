@@ -22,6 +22,9 @@
          <padding>
             <Insets top="10.0" />
          </padding>
+         <font>
+            <Font size="15.0" />
+         </font>
       </Label>
       <Button mnemonicParsing="false" onAction="#goToHomePage" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Label text="Report" GridPane.halignment="CENTER">
