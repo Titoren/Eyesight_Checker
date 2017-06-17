@@ -5,14 +5,16 @@ import eyesightChecker.UserDataExeption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+
 import java.util.regex.Pattern;
 
 /**
  * Created by richard on 24.05.17.
  */
 public class UserInfoController extends BasicController {
-    private Pattern pattern = Pattern.compile("^([A-zЇ-ї])[A-zЇ-ї]{1,20}$");
-//    private Pattern pattern = Pattern.compile("^\\p{javaUpperCase}\\p{javaLowerCase}{1,20}$");
+    private Pattern pattern = Pattern.compile("^([A-Za-zЇ-ї])([A-Za-zЇ-ї'ʼ`])+$");
+//    private Pattern pattern = Pattern.compile("^([A-ZЇ-Я])([A-Za-zЇ-ї'ʼ`])+$");
+
 
     @FXML
     private TextField tfName;
@@ -28,14 +30,16 @@ public class UserInfoController extends BasicController {
         String messageError = "information";
 
         try {
-            if (pattern.matcher(tfName.getText()).matches()) {
+            if (pattern.matcher(tfName.getText()).matches()  &&
+                    isSymbolsOccurrenceOnce("'ʼ`", tfName.getText())) {
                 Main.getCurrentUser().setName(toCorrectString(tfName.getText()));
             } else {
                 messageError = "name";
                 throw new UserDataExeption();
             }
 
-            if (pattern.matcher(tfSurname.getText()).matches()) {
+            if (pattern.matcher(tfSurname.getText()).matches() &&
+                    isSymbolsOccurrenceOnce("'ʼ`", tfSurname.getText())) {
                 Main.getCurrentUser().setSurname(toCorrectString(tfSurname.getText()));
             } else {
                 messageError = "surname";
@@ -66,6 +70,14 @@ public class UserInfoController extends BasicController {
     }
 
     private String toCorrectString(String name) {
-        return name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
+        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+    }
+
+    private boolean isSymbolsOccurrenceOnce(String letters, String text) {
+        String string = "";
+        for (int i = 0; i < letters.length(); i++) {
+            string = text.replace(letters.substring(i, i + 1), "");
+        }
+        return (text.length() - string.length()) <= 1;
     }
 }
