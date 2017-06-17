@@ -8,14 +8,9 @@ import java.io.IOException;
 /**
  * Created by richard on 31.05.17.
  */
-public class InstructionController {
+public class InstructionController extends BasicController{
     @FXML
     void goToTest() {
-//        try {
-//            Main.getMainController().initReportStage();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        Main.getMainController().switchToStage(Main.getMainController().getTestStage());
+        Main.getMainController().switchToStage(MainController.TEST_CONTAINER);
     }
 }

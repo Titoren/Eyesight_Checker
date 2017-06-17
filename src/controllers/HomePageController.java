@@ -6,14 +6,14 @@ import eyesightChecker.Main;
 /**
  * Created by richard on 21.05.17.
  */
-public class HomePageController {
+public class HomePageController extends BasicController{
     @FXML
     void goToUserInfoStage() {
-        Main.getMainController().switchToStage(Main.getMainController().getUserInfoStage());
+        Main.getMainController().switchToStage(MainController.INFO_CONTAINER);
     }
 
     @FXML
     void goToChooseModeStage() {
-        Main.getMainController().switchToStage(Main.getMainController().getChooseModeStage());
+        Main.getMainController().switchToStage(MainController.CHOOSE_MODE_CONTAINER);
     }
 }

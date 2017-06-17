@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +18,7 @@ import java.util.Random;
 /**
  * Created by richard on 02.06.17.
  */
-public class GameMode1Controller {
+public class GameMode1Controller extends BasicController{
     @FXML
     private GridPane gpGameMode1;
 
@@ -30,9 +31,10 @@ public class GameMode1Controller {
     private Integer totalCorrectAnswers;
 
     @FXML
-    void goToResult() {
+    void goToResult() throws IOException {
         if (totalTargetRects == totalCorrectAnswers) {
-            Main.getMainController().switchToStage(Main.getMainController().getResultStage());
+            Main.getMainController().switchToStage(MainController.RESULT_CONTAINER);
+            Main.getMainController().externalInitGameModeOneStage();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");

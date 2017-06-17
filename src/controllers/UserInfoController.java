@@ -1,17 +1,17 @@
 package controllers;
 
 import eyesightChecker.Main;
-import eyesightChecker.User;
+import eyesightChecker.UserDataExeption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
+import java.util.regex.Pattern;
 
 /**
  * Created by richard on 24.05.17.
  */
-public class UserInfoController {
+public class UserInfoController extends BasicController {
+    private Pattern pattern = Pattern.compile("^\\p{javaUpperCase}\\p{javaLowerCase}{2,20}$");
 
     @FXML
     private TextField tfName;
@@ -23,27 +23,46 @@ public class UserInfoController {
     private TextField tfAge;
 
     @FXML
-    void goToInstruction() {
+    void goToInstruction() throws UserDataExeption {
+        String messageError = "information";
+
         try {
-            Main.getCurrentUser().setName(tfName.getText());
-            Main.getCurrentUser().setSurname(tfSurname.getText());
-            Main.getCurrentUser().setAge(Integer.parseInt(tfAge.getText()));
+            if (pattern.matcher(tfName.getText()).matches()) {
+                Main.getCurrentUser().setName(tfName.getText());
+            } else {
+                messageError = "name";
+                throw new UserDataExeption();
+            }
+
+            if (pattern.matcher(tfSurname.getText()).matches()) {
+                Main.getCurrentUser().setSurname(tfSurname.getText());
+            } else {
+                messageError = "surname";
+                throw new UserDataExeption();
+            }
+
+            if (Integer.parseInt(tfAge.getText()) > 5 && Integer.parseInt(tfAge.getText()) <= 100) {
+                Main.getCurrentUser().setAge(Integer.parseInt(tfAge.getText()));
+            } else {
+                messageError = "age";
+                throw new UserDataExeption();
+            }
             Main.getCurrentUser().setAnswerCount(0);
             Main.getCurrentUser().setRightAnswerCount(0);
 
-            Main.getMainController().switchToStage(Main.getMainController().getInstructionStage());
-        } catch (Exception e){
+            tfName.setText("");
+            tfSurname.setText("");
+            tfAge.setText("");
+
+            Main.getMainController().switchToStage(MainController.INSTRUCTION_CONTAINER);
+        } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Please, write correct information!");
+            alert.setContentText("Please, write correct " + messageError + "!");
             alert.showAndWait();
         }
 
         // TODO: 13.06.17 redo
-
-        tfName.setText("");
-        tfSurname.setText("");
-        tfAge.setText("");
     }
 }

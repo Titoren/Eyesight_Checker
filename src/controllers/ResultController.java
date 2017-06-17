@@ -7,20 +7,20 @@ import javafx.fxml.FXML;
  * Created by richard on 02.06.17.
  */
 
-public class ResultController {
+public class ResultController extends BasicController {
     @FXML
     void goToHomePage() {
-        Main.getMainController().switchToStage(Main.getMainController().getHomePageStage());
+        Main.getMainController().switchToStage(MainController.HOME_PAGE_CONTAINER);
     }
 
     // TODO: 11.06.17  Add link to mode 2 & 3
     @FXML
     void goToGameMode1() {
-        Main.getMainController().switchToStage(Main.getMainController().getGameMode1Stage());
+        Main.getMainController().switchToStage(MainController.GAME_MODE_ONE_CONTAINER);
     }
 
     @FXML
     void goToChooseModeStage() {
-        Main.getMainController().switchToStage(Main.getMainController().getChooseModeStage());
+        Main.getMainController().switchToStage(MainController.CHOOSE_MODE_CONTAINER);
     }
 }

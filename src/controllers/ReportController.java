@@ -7,10 +7,10 @@ import javafx.scene.control.Label;
 /**
  * Created by richard on 08.06.17.
  */
-public class ReportController {
+public class ReportController extends BasicController{
     @FXML
     void goToHomePage() {
-        Main.getMainController().switchToStage(Main.getMainController().getHomePageStage());
+        Main.getMainController().switchToStage(MainController.HOME_PAGE_CONTAINER);
     }
 
     @FXML

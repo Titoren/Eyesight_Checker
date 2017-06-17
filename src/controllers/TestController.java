@@ -11,17 +11,17 @@ import java.util.Random;
 /**
  * Created by richard on 31.05.17.
  */
-public class TestController {
+public class TestController extends BasicController {
     private String[] letters = {
-            "шб" ,
-            "мнк" ,
-            "ымбш" ,
-            "бынкм" ,
-            "иншмк" ,
-            "ншыикб" ,
-            "шинбкы" ,
-            "кншмыби" ,
-            "бкшмиын" ,
+            "шб",
+            "мнк",
+            "ымбш",
+            "бынкм",
+            "иншмк",
+            "ншыикб",
+            "шинбкы",
+            "кншмыби",
+            "бкшмиын",
             "нкибмшыб"
     };
 
@@ -31,12 +31,11 @@ public class TestController {
     @FXML
     void goToReportStage() {
         try {
-            Main.getMainController().initReportStage();
+            Main.getMainController().externalInitReportStage();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Main.getMainController().switchToStage(Main.getMainController().getReportStage());
+        Main.getMainController().switchToStage(MainController.REPORT_CONTAINER);
     }
 
     @FXML
@@ -62,8 +61,8 @@ public class TestController {
         Main.getCurrentUser().setRightAnswerCount(Main.getCurrentUser().getRightAnswerCount() + (answer ? 1 : 0));
 
         // TODO: 16.06.17 Check how it works
-        if(Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1 &&
-                ((Main.getCurrentUser().getRightAnswerCount() - 2 ) % 3 == 0))
+        if (Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1 &&
+                ((Main.getCurrentUser().getRightAnswerCount() - 2) % 3 == 0))
             vPosition++;
 
         hPosition = new Random().nextInt(letters[vPosition].length()); //update coordinates for next letter
