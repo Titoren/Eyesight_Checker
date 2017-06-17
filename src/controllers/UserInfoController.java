@@ -31,7 +31,7 @@ public class UserInfoController extends BasicController {
 
         try {
             if (pattern.matcher(tfName.getText()).matches()  &&
-                    isSymbolsOccurrenceOnce("'ʼ`", tfName.getText())) {
+                    isSymbolsOccurrenceOnce(tfName.getText())) {
                 Main.getCurrentUser().setName(toCorrectString(tfName.getText()));
             } else {
                 messageError = "name";
@@ -39,7 +39,7 @@ public class UserInfoController extends BasicController {
             }
 
             if (pattern.matcher(tfSurname.getText()).matches() &&
-                    isSymbolsOccurrenceOnce("'ʼ`", tfSurname.getText())) {
+                    isSymbolsOccurrenceOnce(tfSurname.getText())) {
                 Main.getCurrentUser().setSurname(toCorrectString(tfSurname.getText()));
             } else {
                 messageError = "surname";
@@ -73,10 +73,11 @@ public class UserInfoController extends BasicController {
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 
-    private boolean isSymbolsOccurrenceOnce(String letters, String text) {
+    private boolean isSymbolsOccurrenceOnce(String text) {
         String string = "";
-        for (int i = 0; i < letters.length(); i++) {
-            string = text.replace(letters.substring(i, i + 1), "");
+        String symbols = "'ʼ`";
+        for (int i = 0; i < symbols.length(); i++) {
+            string = text.replace(symbols.substring(i, i + 1), "");
         }
         return (text.length() - string.length()) <= 1;
     }
