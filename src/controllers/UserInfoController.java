@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
  * Created by richard on 24.05.17.
  */
 public class UserInfoController extends BasicController {
-    private Pattern pattern = Pattern.compile("^\\p{javaUpperCase}\\p{javaLowerCase}{2,20}$");
+    private Pattern pattern = Pattern.compile("^([A-zЇ-ї])[A-zЇ-ї]{1,20}$");
+//    private Pattern pattern = Pattern.compile("^\\p{javaUpperCase}\\p{javaLowerCase}{1,20}$");
 
     @FXML
     private TextField tfName;
@@ -28,20 +29,20 @@ public class UserInfoController extends BasicController {
 
         try {
             if (pattern.matcher(tfName.getText()).matches()) {
-                Main.getCurrentUser().setName(tfName.getText());
+                Main.getCurrentUser().setName(toCorrectString(tfName.getText()));
             } else {
                 messageError = "name";
                 throw new UserDataExeption();
             }
 
             if (pattern.matcher(tfSurname.getText()).matches()) {
-                Main.getCurrentUser().setSurname(tfSurname.getText());
+                Main.getCurrentUser().setSurname(toCorrectString(tfSurname.getText()));
             } else {
                 messageError = "surname";
                 throw new UserDataExeption();
             }
 
-            if (Integer.parseInt(tfAge.getText()) > 5 && Integer.parseInt(tfAge.getText()) <= 100) {
+            if (Integer.parseInt(tfAge.getText()) >= 5 && Integer.parseInt(tfAge.getText()) <= 100) {
                 Main.getCurrentUser().setAge(Integer.parseInt(tfAge.getText()));
             } else {
                 messageError = "age";
@@ -62,7 +63,9 @@ public class UserInfoController extends BasicController {
             alert.setContentText("Please, write correct " + messageError + "!");
             alert.showAndWait();
         }
+    }
 
-        // TODO: 13.06.17 redo
+    private String toCorrectString(String name) {
+        return name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
     }
 }
