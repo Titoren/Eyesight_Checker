@@ -30,6 +30,8 @@ public class GameMode1Controller extends BasicController{
 
     private Integer totalCorrectAnswers;
 
+    private Integer selectedRectsCount;
+
     @FXML
     void refresh() throws IOException {
         Main.getMainController().externalInitGameModeOneStage();
@@ -37,7 +39,7 @@ public class GameMode1Controller extends BasicController{
 
     @FXML
     void goToResult() throws IOException {
-        if (totalTargetRects.equals(totalCorrectAnswers)) {
+        if (totalTargetRects.equals(totalCorrectAnswers) && totalTargetRects.equals(selectedRectsCount)) {
             Main.getMainController().switchToStage(MainController.RESULT_CONTAINER);
             Main.getMainController().externalInitGameModeOneStage();
             ((ResultController)Main.getMainController().getControlContainers().
@@ -56,6 +58,7 @@ public class GameMode1Controller extends BasicController{
     private void initialize() {
         totalCorrectAnswers = 0;
         totalTargetRects = 0;
+        selectedRectsCount = 0;
         rectangles = new ArrayList<>();
         colors = new ArrayList<>();
         addColors();
@@ -79,10 +82,12 @@ public class GameMode1Controller extends BasicController{
                         if (color == Color.RED)
                             totalCorrectAnswers++;
                         rectangle.setStroke(Color.AZURE);
+                        selectedRectsCount++;
                     } else {
                         if (color == Color.RED)
                             totalCorrectAnswers--;
                         rectangle.setStroke(Color.BLACK);
+                        selectedRectsCount--;
                     }
                 });
             }
