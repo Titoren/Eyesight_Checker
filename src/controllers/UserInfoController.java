@@ -73,7 +73,7 @@ public class UserInfoController extends BasicController {
 
     private boolean isSymbolsOccurrenceOnce(String text) {
         String string = "";
-        String symbols = "'ʼ`-";
+        String symbols = "'ʼ`- ";
         for (int i = 0; i < symbols.length(); i++) {
             string = text.replace(symbols.substring(i, i + 1), "");
         }
