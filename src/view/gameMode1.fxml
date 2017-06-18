@@ -20,7 +20,6 @@
     <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" onAction="#goToResult" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Label text="Choose red squares" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="20.0" />
@@ -238,7 +237,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="72.0" strokeWidth="3.0" width="72.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="72.0" strokeWidth="4.0" width="72.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <stroke>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -256,6 +255,30 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#goToResult" text="Finish" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="200.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#refresh" text="Refresh" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="190.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </children>

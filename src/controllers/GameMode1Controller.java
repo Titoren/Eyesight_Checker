@@ -30,7 +30,10 @@ public class GameMode1Controller extends BasicController{
 
     private Integer totalCorrectAnswers;
 
-
+    @FXML
+    void refresh() throws IOException {
+        Main.getMainController().externalInitGameModeOneStage();
+    }
 
     @FXML
     void goToResult() throws IOException {
