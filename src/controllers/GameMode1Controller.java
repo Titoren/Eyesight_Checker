@@ -45,6 +45,7 @@ public class GameMode1Controller extends BasicController{
     @FXML
     void refresh() throws IOException {
         Main.getMainController().externalInitGameModeOneStage();
+        Main.getMainController().switchToStage(MainController.GAME_MODE_ONE_CONTAINER);
     }
 
     @FXML
