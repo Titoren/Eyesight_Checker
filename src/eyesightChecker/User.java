@@ -10,6 +10,17 @@ public class User {
 
     private int answerCount;
     private int rightAnswerCount;
+    private int problemTableRow;
+
+    public User(String name, String surname, int age, int answerCount,
+                int rightAnswerCount, int problemTableRow) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.answerCount = answerCount;
+        this.rightAnswerCount = rightAnswerCount;
+        this.problemTableRow = problemTableRow;
+    }
 
     public User(String name, String surname, int age) {
         this.name = name;
@@ -58,5 +69,13 @@ public class User {
 
     public void setRightAnswerCount(int rightAnswerCount) {
         this.rightAnswerCount = rightAnswerCount;
+    }
+
+    public int getProblemTableRow() {
+        return problemTableRow;
+    }
+
+    public void setProblemTableRow(int problemTableRow) {
+        this.problemTableRow = problemTableRow;
     }
 }

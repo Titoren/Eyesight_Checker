@@ -52,6 +52,8 @@ public class UserInfoController extends BasicController {
             }
             Main.getCurrentUser().setAnswerCount(0);
             Main.getCurrentUser().setRightAnswerCount(0);
+            Main.getCurrentUser().setProblemTableRow(0);
+
 
             tfName.setText("");
             tfSurname.setText("");
@@ -62,7 +64,8 @@ public class UserInfoController extends BasicController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Please, write correct " + messageError + "!");
+            alert.setContentText("Please, write correct " + messageError + "!" +
+                    "\n");
             alert.showAndWait();
         }
     }

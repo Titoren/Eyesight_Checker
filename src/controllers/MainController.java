@@ -68,7 +68,11 @@ public class MainController {
                 "\n--------------------------------------------------------------------------------" +
                 "\n\n\t\t\t\t     " +
                 "Result: " + Main.getCurrentUser().getRightAnswerCount() + "/" +
-                Main.getCurrentUser().getAnswerCount()
+                Main.getCurrentUser().getAnswerCount() + "\n\n" +
+                ((Main.getCurrentUser().getProblemTableRow() > 0 &&
+                        Main.getCurrentUser().getProblemTableRow() < 8 ) ?
+                        ("You have problem in " + (Main.getCurrentUser().getProblemTableRow()) +
+                                " row, please visit your doctor.") : "You have good eyesight.")
         );
 
         Stage stage = new Stage();

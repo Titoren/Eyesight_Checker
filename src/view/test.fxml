@@ -58,11 +58,11 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <ImageView fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <ImageView fitWidth="365.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
-            <Image url="@../img/test1.png" />
+            <Image url="@../img/chart_2.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblDebug" text="{Debug Result}" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Label fx:id="lblDebug" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
    </children>
 </GridPane>

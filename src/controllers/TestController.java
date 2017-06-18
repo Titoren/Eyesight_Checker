@@ -4,6 +4,7 @@ import eyesightChecker.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.util.Random;
@@ -12,7 +13,6 @@ import java.util.Random;
  * Created by richard on 31.05.17.
  */
 public class TestController extends BasicController {
-    // TODO: 18.06.17 Add eng letters
     private String[] letters = {
             "fp",
             "toz",
@@ -70,13 +70,23 @@ public class TestController extends BasicController {
     public void checkLetter() {
         boolean answer = letters[vPosition].substring(hPosition, hPosition + 1).equalsIgnoreCase(getTfCompare().getText());
         lblDebug.setText("" + answer);
+        lblDebug.textFillProperty().set((answer) ? Color.LIMEGREEN : Color.RED);
 
         Main.getCurrentUser().setAnswerCount(Main.getCurrentUser().getAnswerCount() + 1);
         Main.getCurrentUser().setRightAnswerCount(Main.getCurrentUser().getRightAnswerCount() + (answer ? 1 : 0));
 
-        if (Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1 &&
-                ((Main.getCurrentUser().getRightAnswerCount() - 2) % 3 == 0))
+        if ((Main.getCurrentUser().getAnswerCount() -
+                Main.getCurrentUser().getRightAnswerCount()) >= 5) {
+            Main.getCurrentUser().setProblemTableRow(vPosition + 1);
+            goToReportStage();
+        }
+
+        if ((Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1) &&
+                ((Main.getCurrentUser().getRightAnswerCount() - 2) % 3 == 0) && answer) {
             vPosition++;
+
+        }
+
         if (!(vPosition >= 10)) {
             hPosition = new Random().nextInt(letters[vPosition].length()); //update coordinates for next letter
             positionLabel.setText("Write letter from " + (vPosition + 1) +
