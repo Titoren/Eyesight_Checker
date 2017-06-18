@@ -30,11 +30,16 @@ public class GameMode1Controller extends BasicController{
 
     private Integer totalCorrectAnswers;
 
+
+
     @FXML
     void goToResult() throws IOException {
-        if (totalTargetRects == totalCorrectAnswers) {
+        if (totalTargetRects.equals(totalCorrectAnswers)) {
             Main.getMainController().switchToStage(MainController.RESULT_CONTAINER);
             Main.getMainController().externalInitGameModeOneStage();
+            ((ResultController)Main.getMainController().getControlContainers().
+                    get(MainController.RESULT_CONTAINER).getController()).getLblResult().
+                    setText("     Game mode one\ncomplete  successfully!");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");

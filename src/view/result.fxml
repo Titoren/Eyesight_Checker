@@ -18,7 +18,7 @@
     <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="{result}" GridPane.halignment="CENTER" />
+      <Label fx:id="lblResult" text="{result}" GridPane.halignment="CENTER" />
       <Button mnemonicParsing="false" onAction="#goToGameMode1" prefWidth="110.0" text="Rerty" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#goToChooseModeStage" prefWidth="110.0" text="New mode" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Button mnemonicParsing="false" onAction="#goToHomePage" prefWidth="110.0" text="Main menu" GridPane.halignment="CENTER" GridPane.rowIndex="3">

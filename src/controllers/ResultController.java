@@ -2,12 +2,16 @@ package controllers;
 
 import eyesightChecker.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 /**
  * Created by richard on 02.06.17.
  */
 
 public class ResultController extends BasicController {
+    @FXML
+    private Label lblResult;
+
     @FXML
     void goToHomePage() {
         Main.getMainController().switchToStage(MainController.HOME_PAGE_CONTAINER);
@@ -22,5 +26,9 @@ public class ResultController extends BasicController {
     @FXML
     void goToChooseModeStage() {
         Main.getMainController().switchToStage(MainController.CHOOSE_MODE_CONTAINER);
+    }
+
+    public Label getLblResult() {
+        return lblResult;
     }
 }
