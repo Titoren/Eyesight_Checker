@@ -59,6 +59,7 @@ public class GameMode1Controller extends BasicController{
                 if ((Color) rect.getFill() == Color.RED) {
                     totalTargetRects++;
                 }
+
                 rect.setStroke(Color.BLACK);
                 rectangles.add(rect);
                 addRect(rect, i, j);
@@ -66,8 +67,14 @@ public class GameMode1Controller extends BasicController{
                     System.out.println("mouse click detected! " + event.getSource());
                     Rectangle rectangle = (Rectangle) event.getSource();
                     Color color = (Color) rectangle.getFill();
-                    if (color == Color.RED) {
-                        totalCorrectAnswers++;
+                    if(rect.getStroke() != Color.AZURE) {
+                        if (color == Color.RED)
+                            totalCorrectAnswers++;
+                        rectangle.setStroke(Color.AZURE);
+                    } else {
+                        if (color == Color.RED)
+                            totalCorrectAnswers--;
+                        rectangle.setStroke(Color.BLACK);
                     }
                 });
             }

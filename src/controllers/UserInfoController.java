@@ -5,7 +5,6 @@ import eyesightChecker.UserDataExeption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
 import java.util.regex.Pattern;
 
 /**
@@ -13,7 +12,7 @@ import java.util.regex.Pattern;
  */
 public class UserInfoController extends BasicController {
     private Pattern pattern = Pattern.compile("^([A-Za-zЇ-ї])([A-Za-zЇ-ї'ʼ`])+$");
-//    private Pattern pattern = Pattern.compile("^([A-ZЇ-Я])([A-Za-zЇ-ї'ʼ`])+$");
+//    private Pattern pattern = Pattern.compile("^([A-ZЇ-Я])([a-zа-ї'ʼ`])+$");
 
 
     @FXML
@@ -75,7 +74,7 @@ public class UserInfoController extends BasicController {
 
     private boolean isSymbolsOccurrenceOnce(String text) {
         String string = "";
-        String symbols = "'ʼ`";
+        String symbols = "'ʼ`-";
         for (int i = 0; i < symbols.length(); i++) {
             string = text.replace(symbols.substring(i, i + 1), "");
         }
