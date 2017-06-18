@@ -25,7 +25,7 @@
             <Image url="@../img/instruction.jpg" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#goToTest" text="Done" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button mnemonicParsing="false" onAction="#goToChooseTest" text="Done" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin>

@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class InstructionController extends BasicController{
     @FXML
-    void goToTest() {
-        Main.getMainController().switchToStage(MainController.TEST_CONTAINER);
+    void goToChooseTest() throws IOException {
+        Main.getMainController().switchToStage(MainController.CHOOSE_TEST_CONTAINER);
     }
 }

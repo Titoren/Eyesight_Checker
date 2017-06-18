@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MainController {
@@ -24,10 +23,12 @@ public class MainController {
     public static final int RESULT_CONTAINER = 5;
     public static final int TEST_CONTAINER = 6;
     public static final int HOME_PAGE_CONTAINER = 7;
+    public static final int CHOOSE_TEST_CONTAINER = 8;
+    public static final int TEST_ONE_CONTAINER = 9;
 
 
     public MainController(Stage primaryStage) throws Exception {
-        controlContainers = new ArrayList<>(10);
+        controlContainers = new ArrayList<>(12);
 
         controlContainers.add(REPORT_CONTAINER, initInfoStage());
         controlContainers.add(INFO_CONTAINER, initInfoStage());
@@ -37,6 +38,9 @@ public class MainController {
         controlContainers.add(RESULT_CONTAINER, initResultStage());
         controlContainers.add(TEST_CONTAINER, initTestStage());
         controlContainers.add(HOME_PAGE_CONTAINER, initHomeStage(primaryStage));
+        controlContainers.add(CHOOSE_TEST_CONTAINER, initChooseTestStage());
+        controlContainers.add(TEST_ONE_CONTAINER, initTestOneStage());
+
     }
 
     private ControlContainer initHomeStage(Stage primaryStage) throws java.io.IOException {
@@ -73,12 +77,17 @@ public class MainController {
         return new ControlContainer(parent, stage, controller);
     }
 
+    public void externalInitTestStage() throws IOException {
+        controlContainers.remove(TEST_CONTAINER);
+        controlContainers.add(TEST_CONTAINER, initTestStage());
+    }
+
     public void externalInitReportStage() throws IOException {
         controlContainers.remove(REPORT_CONTAINER);
         controlContainers.add(REPORT_CONTAINER, initReportStage());
     }
 
-    public void externalInitGameModeOneStage()  throws IOException {
+    public void externalInitGameModeOneStage() throws IOException {
         controlContainers.remove(GAME_MODE_ONE_CONTAINER);
         controlContainers.add(GAME_MODE_ONE_CONTAINER, initGameMode1());
     }
@@ -100,6 +109,26 @@ public class MainController {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Game mode 1");
+        return new ControlContainer(parent, stage, controller);
+    }
+
+    private ControlContainer initChooseTestStage() throws java.io.IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/chooseTest.fxml"));
+        Parent parent = fxmlLoader.load();
+        BasicController controller = fxmlLoader.getController();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Choose test");
+        return new ControlContainer(parent, stage, controller);
+    }
+
+    private ControlContainer initTestOneStage() throws java.io.IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/test1.fxml"));
+        Parent parent = fxmlLoader.load();
+        BasicController controller = fxmlLoader.getController();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Test mode 1");
         return new ControlContainer(parent, stage, controller);
     }
 

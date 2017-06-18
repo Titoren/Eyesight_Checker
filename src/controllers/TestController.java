@@ -12,7 +12,21 @@ import java.util.Random;
  * Created by richard on 31.05.17.
  */
 public class TestController extends BasicController {
+    // TODO: 18.06.17 Add eng letters
     private String[] letters = {
+            "fp",
+            "toz",
+            "lped",
+            "pecfd",
+            "edfczp",
+            "felopzd",
+            "defpotec",
+            "lefodpct",
+            "fdpltceo",
+            "pezolcftd"
+    };
+
+    private String[] lettersRu = {
             "шб",
             "мнк",
             "ымбш",
@@ -60,14 +74,16 @@ public class TestController extends BasicController {
         Main.getCurrentUser().setAnswerCount(Main.getCurrentUser().getAnswerCount() + 1);
         Main.getCurrentUser().setRightAnswerCount(Main.getCurrentUser().getRightAnswerCount() + (answer ? 1 : 0));
 
-        // TODO: 16.06.17 Check how it works
         if (Main.getCurrentUser().getRightAnswerCount() == 2 || vPosition >= 1 &&
                 ((Main.getCurrentUser().getRightAnswerCount() - 2) % 3 == 0))
             vPosition++;
-
-        hPosition = new Random().nextInt(letters[vPosition].length()); //update coordinates for next letter
-        positionLabel.setText("Write letter from " + (vPosition + 1) +
-                " row and " + (hPosition + 1) + " column ");
+        if (!(vPosition >= 10)) {
+            hPosition = new Random().nextInt(letters[vPosition].length()); //update coordinates for next letter
+            positionLabel.setText("Write letter from " + (vPosition + 1) +
+                    " row and " + (hPosition + 1) + " column ");
+        } else {
+            goToReportStage();
+        }
 
         tfCompare.setText("");
     }

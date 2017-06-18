@@ -31,7 +31,13 @@
                   <Image url="@../img/logo.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#goToUserInfoStage" text="Start test mode" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#goToUserInfoStage" text="Start test mode" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+               </padding></Button>
             <Button mnemonicParsing="false" onAction="#goToChooseModeStage" text="Start game mode" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="15.0" />
