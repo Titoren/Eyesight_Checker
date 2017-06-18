@@ -4,6 +4,7 @@ import eyesightChecker.Main;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -22,6 +23,9 @@ public class GameMode1Controller extends BasicController{
     @FXML
     private GridPane gpGameMode1;
 
+    @FXML
+    private Label lblTask;
+
     private List<Rectangle> rectangles;
 
     private List<Color> colors;
@@ -31,6 +35,12 @@ public class GameMode1Controller extends BasicController{
     private Integer totalCorrectAnswers;
 
     private Integer selectedRectsCount;
+
+    private Integer colorId;
+
+    private Color targetColor;
+
+    String[] colorName = {"blue", "red", "green"};
 
     @FXML
     void refresh() throws IOException {
@@ -49,7 +59,7 @@ public class GameMode1Controller extends BasicController{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");
             alert.setHeaderText(null);
-            alert.setContentText("Look for the other red squares, please!");
+            alert.setContentText("Look for the other " + colorName[colorId] + " squares, please!");
             alert.showAndWait();
         }
     }
@@ -62,12 +72,17 @@ public class GameMode1Controller extends BasicController{
         rectangles = new ArrayList<>();
         colors = new ArrayList<>();
         addColors();
+        targetColor = (Color) getRandomColor(colors);
+
+        colorId = (targetColor == Color.BLUE) ? 0 : (targetColor == Color.RED) ? 1 : 2;
+
+        lblTask.setText("Choose " + colorName[colorId] + " squares");
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 Rectangle rect = new Rectangle(0, 0, 72, 72);
                 rect.setFill(getRandomColor(colors));
-                if ((Color) rect.getFill() == Color.RED) {
+                if ((Color) rect.getFill() == targetColor) {
                     totalTargetRects++;
                 }
 
@@ -79,12 +94,12 @@ public class GameMode1Controller extends BasicController{
                     Rectangle rectangle = (Rectangle) event.getSource();
                     Color color = (Color) rectangle.getFill();
                     if(rect.getStroke() != Color.AZURE) {
-                        if (color == Color.RED)
+                        if (color == targetColor)
                             totalCorrectAnswers++;
                         rectangle.setStroke(Color.AZURE);
                         selectedRectsCount++;
                     } else {
-                        if (color == Color.RED)
+                        if (color == targetColor)
                             totalCorrectAnswers--;
                         rectangle.setStroke(Color.BLACK);
                         selectedRectsCount--;
@@ -115,5 +130,9 @@ public class GameMode1Controller extends BasicController{
 
     public List<Rectangle> getRectangles() {
         return rectangles;
+    }
+
+    public Label getLblTask() {
+        return lblTask;
     }
 }

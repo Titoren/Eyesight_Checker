@@ -20,7 +20,7 @@
     <RowConstraints maxHeight="193.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Choose red squares" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <Label fx:id="lblTask" text="Choose red squares" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="20.0" />
          </GridPane.margin>
@@ -237,7 +237,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="72.0" strokeWidth="4.0" width="72.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="72.0" strokeWidth="3.0" width="72.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <stroke>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
