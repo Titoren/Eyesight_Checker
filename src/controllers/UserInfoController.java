@@ -11,9 +11,8 @@ import java.util.regex.Pattern;
  * Created by richard on 24.05.17.
  */
 public class UserInfoController extends BasicController {
-    private Pattern pattern = Pattern.compile("^([A-Za-zЇ-ї])([A-Za-zЇ-ї'ʼ`])+([A-Za-zЇ-ї])$");
-//    private Pattern pattern = Pattern.compile("^([A-ZЇ-Я])([a-zа-ї'ʼ`])+$");
-
+//    private Pattern pattern = Pattern.compile("^([A-Za-zЇ-ї])([A-Za-zЇ-ї'ʼ`])+([A-Za-zЇ-ї])$");
+    private Pattern pattern = Pattern.compile("^([A-ZЇ-Я])([a-zа-ї'ʼ`])+([a-zа-ї])$");
 
     @FXML
     private TextField tfName;
