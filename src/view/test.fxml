@@ -31,7 +31,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="tfCompare" promptText="Write letter here">
+            <TextField fx:id="tfCompare" promptText="Type letter here">
                <GridPane.margin>
                   <Insets left="20.0" right="10.0" />
                </GridPane.margin></TextField>

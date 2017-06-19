@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GameModeTwoController">
+<GridPane fx:id="gpGameModeTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GameModeTwoController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -21,7 +21,7 @@
   </rowConstraints>
    <children>
       <Button mnemonicParsing="false" onAction="#goToResult" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Circle fx:id="circle" onMouseMoved="#moveCircle" radius="43.0" strokeType="INSIDE" GridPane.rowIndex="1">
+      <Circle fx:id="circle" centerX="10.0" centerY="80.0" layoutX="40.0" layoutY="222.0" onMouseMoved="#moveCircle" radius="48.0" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
