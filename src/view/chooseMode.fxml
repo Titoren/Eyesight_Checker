@@ -20,7 +20,7 @@
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </padding>
       </Button>
-      <Button mnemonicParsing="false" text="Mode 2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onAction="#goToGameModeTwo" text="Mode 2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <padding>
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </padding>

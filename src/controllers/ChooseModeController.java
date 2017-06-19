@@ -11,4 +11,9 @@ public class ChooseModeController extends BasicController {
     void goToGameMode1() {
         Main.getMainController().switchToStage(MainController.GAME_MODE_ONE_CONTAINER);
     }
+
+    @FXML
+    void goToGameModeTwo() {
+        Main.getMainController().switchToStage(MainController.GAME_MODE_TWO_CONTAINER);
+    }
 }

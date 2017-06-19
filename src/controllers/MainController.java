@@ -25,6 +25,7 @@ public class MainController {
     public static final int HOME_PAGE_CONTAINER = 7;
     public static final int CHOOSE_TEST_CONTAINER = 8;
     public static final int TEST_ONE_CONTAINER = 9;
+    public static final int GAME_MODE_TWO_CONTAINER = 10;
 
 
     public MainController(Stage primaryStage) throws Exception {
@@ -40,6 +41,7 @@ public class MainController {
         controlContainers.add(HOME_PAGE_CONTAINER, initHomeStage(primaryStage));
         controlContainers.add(CHOOSE_TEST_CONTAINER, initChooseTestStage());
         controlContainers.add(TEST_ONE_CONTAINER, initTestOneStage());
+        controlContainers.add(GAME_MODE_TWO_CONTAINER, initGameModeTwo());
 
     }
 
@@ -95,6 +97,7 @@ public class MainController {
         controlContainers.remove(GAME_MODE_ONE_CONTAINER);
         controlContainers.add(GAME_MODE_ONE_CONTAINER, initGameMode1());
     }
+    // TODO: 19.06.17 Add external init for game mode two.
 
     private ControlContainer initResultStage() throws java.io.IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/result.fxml"));
@@ -113,6 +116,16 @@ public class MainController {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Game mode 1");
+        return new ControlContainer(parent, stage, controller);
+    }
+
+    private ControlContainer initGameModeTwo() throws java.io.IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/gameModeTwo.fxml"));
+        Parent parent = fxmlLoader.load();
+        BasicController controller = fxmlLoader.getController();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Game mode 2");
         return new ControlContainer(parent, stage, controller);
     }
 
