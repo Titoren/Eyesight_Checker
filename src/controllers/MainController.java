@@ -68,14 +68,16 @@ public class MainController {
                 "Surname: " + Main.getCurrentUser().getSurname() + "\n" +
                 "Age: " + Main.getCurrentUser().getAge() + "\n" +
                 "\n--------------------------------------------------------------------------------" +
-                "\n\n\t\t\t\t     " +
+                "\n\n\t\t\t   " +
                 "Result: " + Main.getCurrentUser().getRightAnswerCount() + "/" +
-                Main.getCurrentUser().getAnswerCount() + "\n\n" +
-                ((Main.getCurrentUser().getProblemTableRow() > 0 &&
-                        Main.getCurrentUser().getProblemTableRow() < 8 ) ?
+                Main.getCurrentUser().getAnswerCount() + " right answer.\n\n" +
+                ((Main.getCurrentUser().getProblemTableRow() < 7 ) ?
                         ("You have problem in " + (Main.getCurrentUser().getProblemTableRow()) +
-                                " row, please visit your doctor.") : "You have good eyesight.")
-        );
+                                " row, please visit your doctor.") : ("You have good eyesight." +
+                        ((Main.getCurrentUser().getProblemTableRow() < 10 ) ?
+                                "\nBut do not forget to do regular exercises" +
+                                        " for your eyes\nand from time to time check your eyesight." : ""))
+        ));
 
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
