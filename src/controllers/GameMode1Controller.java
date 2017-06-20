@@ -55,7 +55,7 @@ public class GameMode1Controller extends BasicController{
             Main.getMainController().externalInitGameModeOneStage();
             ((ResultController)Main.getMainController().getControlContainers().
                     get(MainController.RESULT_CONTAINER).getController()).getLblResult().
-                    setText("Level complete!");
+                    setText("Game complete");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");
@@ -63,6 +63,15 @@ public class GameMode1Controller extends BasicController{
             alert.setContentText("Look for the other " + colorName[colorId] + " squares, please!");
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void leave() throws IOException {
+        Main.getMainController().switchToStage(MainController.RESULT_CONTAINER);
+        Main.getMainController().externalInitGameModeOneStage();
+        ((ResultController)Main.getMainController().getControlContainers().
+                get(MainController.RESULT_CONTAINER).getController()).getLblResult().
+                setText("Try again");
     }
 
     @FXML

@@ -15,6 +15,8 @@ public class MainController {
 
     private Stage currentStage;
 
+    private int currentGameMode = GAME_MODE_ONE_CONTAINER;
+
     public static final int REPORT_CONTAINER = 0;
     public static final int INFO_CONTAINER = 1;
     public static final int INSTRUCTION_CONTAINER = 2;
@@ -100,6 +102,11 @@ public class MainController {
     public void externalInitGameModeOneStage() throws IOException {
         controlContainers.remove(GAME_MODE_ONE_CONTAINER);
         controlContainers.add(GAME_MODE_ONE_CONTAINER, initGameMode1());
+    }
+
+    public void externalInitGameModeTwoStage() throws IOException {
+        controlContainers.remove(GAME_MODE_TWO_CONTAINER);
+        controlContainers.add(GAME_MODE_TWO_CONTAINER, initGameModeTwo());
     }
     // TODO: 19.06.17 Add external init for game mode two.
 
@@ -211,5 +218,11 @@ public class MainController {
         return currentStage;
     }
 
+    public int getCurrentGameMode() {
+        return currentGameMode;
+    }
 
+    public void setCurrentGameMode(int currentGameMode) {
+        this.currentGameMode = currentGameMode;
+    }
 }

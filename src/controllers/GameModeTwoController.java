@@ -25,12 +25,11 @@ public class GameModeTwoController extends BasicController {
     @FXML
     void goToResult() throws IOException {
         Main.getMainController().switchToStage(MainController.RESULT_CONTAINER);
-        // TODO: 19.06.17 Add extInit
-//        Main.getMainController().externalInitGameModeOneStage();
-//        ((ResultController) Main.getMainController().getControlContainers().
-//                get(MainController.RESULT_CONTAINER).getController()).getLblResult().
-//                setText("     Game mode one\ncomplete  successfully!");
+        Main.getMainController().externalInitGameModeTwoStage();
 
+        ((ResultController) Main.getMainController().getControlContainers().
+                get(MainController.RESULT_CONTAINER).getController()).getLblResult().
+                setText("Try again");
     }
 
     @FXML
@@ -57,6 +56,9 @@ public class GameModeTwoController extends BasicController {
             if (circle.getRadius() < 5) {
                 try {
                     goToResult();
+                    ((ResultController) Main.getMainController().getControlContainers().
+                            get(MainController.RESULT_CONTAINER).getController()).getLblResult().
+                            setText("Game complete");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

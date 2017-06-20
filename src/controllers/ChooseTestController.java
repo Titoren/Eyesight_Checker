@@ -17,8 +17,8 @@ public class ChooseTestController extends BasicController{
 
     @FXML
     void goToTestOne() throws IOException {
-        // TODO: 18.06.17 Call external init
-//        Main.getMainController().externalInitTestStage();
+        // TODO: 18.06.17 Call external init is duplicated (Check)
+//        Main.getMainController().externalInitGameModeTwoStage();
         Main.getMainController().switchToStage(MainController.TEST_ONE_CONTAINER);
     }
 }

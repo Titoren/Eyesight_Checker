@@ -17,10 +17,13 @@ public class ResultController extends BasicController {
         Main.getMainController().switchToStage(MainController.HOME_PAGE_CONTAINER);
     }
 
-    // TODO: 11.06.17  Add link to mode 2 & 3
     @FXML
     void goToGameMode1() {
-        Main.getMainController().switchToStage(MainController.GAME_MODE_ONE_CONTAINER);
+        if(Main.getMainController().getCurrentGameMode() == MainController.GAME_MODE_ONE_CONTAINER) {
+            Main.getMainController().switchToStage(MainController.GAME_MODE_ONE_CONTAINER);
+        } else {
+            Main.getMainController().switchToStage(MainController.GAME_MODE_TWO_CONTAINER);
+        }
     }
 
     @FXML
