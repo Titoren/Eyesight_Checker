@@ -31,7 +31,7 @@
                   <Image url="@../img/logo.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#goToUserInfoStage" text="Start test mode" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#goToTestOne" text="Start test mode" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

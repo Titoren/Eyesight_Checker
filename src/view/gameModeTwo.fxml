@@ -21,7 +21,7 @@
   </rowConstraints>
    <children>
       <Button mnemonicParsing="false" onAction="#goToResult" text="Finish" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Circle fx:id="circle" centerX="10.0" centerY="80.0" layoutX="40.0" layoutY="222.0" onMouseMoved="#moveCircle" radius="48.0" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Circle fx:id="circle" centerX="10.0" centerY="80.0" layoutX="40.0" layoutY="222.0" radius="48.0" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
