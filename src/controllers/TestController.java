@@ -59,7 +59,7 @@ public class TestController extends BasicController {
 
         ((ReportController)Main.getMainController().getControlContainers().
                 get(MainController.REPORT_CONTAINER).getController()).getLblAdvise().setText(
-                        ("You stopped test on " + (Main.getCurrentUser().getProblemTableRow()) +
+                        ("You stopped test on " + (vPosition + 1) +
                 " row, the result may not be accurate.")
         );
 

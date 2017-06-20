@@ -55,9 +55,9 @@ public class UserInfoController extends BasicController {
             Main.getCurrentUser().setProblemTableRow(0);
 
 
-            tfName.setText("");
-            tfSurname.setText("");
-            tfAge.setText("");
+//            tfName.setText("");
+//            tfSurname.setText("");
+//            tfAge.setText("");
 
             Main.getMainController().switchToStage(MainController.INSTRUCTION_CONTAINER);
         } catch (Exception e) {
