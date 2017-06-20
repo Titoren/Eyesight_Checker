@@ -55,7 +55,7 @@ public class GameMode1Controller extends BasicController{
             Main.getMainController().externalInitGameModeOneStage();
             ((ResultController)Main.getMainController().getControlContainers().
                     get(MainController.RESULT_CONTAINER).getController()).getLblResult().
-                    setText("     Game mode one\ncomplete  successfully!");
+                    setText("Level complete!");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");

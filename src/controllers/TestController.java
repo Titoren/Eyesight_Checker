@@ -1,10 +1,17 @@
 package controllers;
 
 import eyesightChecker.Main;
+import javafx.animation.TranslateTransition;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.util.Random;
@@ -50,6 +57,17 @@ public class TestController extends BasicController {
             e.printStackTrace();
         }
         Main.getMainController().switchToStage(MainController.REPORT_CONTAINER);
+    }
+
+    @FXML
+    void checkCharOnEnter() {
+        Scene scene = Main.getMainController().getControlContainers().
+                get(MainController.TEST_CONTAINER).getStage().getScene();
+        scene.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER)  {
+                checkLetter();
+            }
+        });
     }
 
     @FXML
