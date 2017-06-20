@@ -32,5 +32,13 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Label fx:id="lblAdvise" text="{advise}" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="80.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

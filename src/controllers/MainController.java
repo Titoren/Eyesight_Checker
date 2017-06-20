@@ -70,13 +70,15 @@ public class MainController {
                 "\n--------------------------------------------------------------------------------" +
                 "\n\n\t\t\t   " +
                 "Result: " + Main.getCurrentUser().getRightAnswerCount() + "/" +
-                Main.getCurrentUser().getAnswerCount() + " right answer.\n\n" +
-                ((Main.getCurrentUser().getProblemTableRow() < 7 ) ?
-                        ("You have problem in " + (Main.getCurrentUser().getProblemTableRow()) +
-                                " row, please visit your doctor.") : ("You have good eyesight." +
-                        ((Main.getCurrentUser().getProblemTableRow() < 10 ) ?
-                                "\nBut do not forget to do regular exercises" +
-                                        " for your eyes\nand from time to time check your eyesight." : ""))
+                Main.getCurrentUser().getAnswerCount() + " right answer.\n\n"
+        );
+
+        controller.getLblAdvise().setText(((Main.getCurrentUser().getProblemTableRow() < 7) ?
+                ("You have problem on " + (Main.getCurrentUser().getProblemTableRow()) +
+                        " row, please visit your doctor.") : ("You have good eyesight." +
+                ((Main.getCurrentUser().getProblemTableRow() < 10) ?
+                        "\nBut do not forget to do regular exercises" +
+                                " for your eyes\nand from time to time check your eyesight." : ""))
         ));
 
         Stage stage = new Stage();

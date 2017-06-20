@@ -56,6 +56,13 @@ public class TestController extends BasicController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        ((ReportController)Main.getMainController().getControlContainers().
+                get(MainController.REPORT_CONTAINER).getController()).getLblAdvise().setText(
+                        ("You stopped test on " + (Main.getCurrentUser().getProblemTableRow()) +
+                " row, the result may not be accurate.")
+        );
+
         Main.getMainController().switchToStage(MainController.REPORT_CONTAINER);
     }
 

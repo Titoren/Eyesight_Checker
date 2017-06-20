@@ -16,13 +16,16 @@ public class ReportController extends BasicController{
     @FXML
     private Label lblReportText;
 
+    @FXML
+    private Label lblAdvise;
+
 
 
     public Label getLblReportText() {
         return lblReportText;
     }
 
-    public void setLblReportText(Label lblReportText) {
-        this.lblReportText = lblReportText;
+    public Label getLblAdvise() {
+        return lblAdvise;
     }
 }
